@@ -7,8 +7,8 @@ HK
 // A class representing a node for a stack
 public class StackNode<T> {
 
-    private T data; // Data stored in the node
-    private StackNode parent; // Reference to the parent node
+    protected T data; // Data stored in the node
+    protected StackNode parent; // Reference to the parent node
 
     // Default constructor, creates a node without data or a parent reference
     public StackNode() {

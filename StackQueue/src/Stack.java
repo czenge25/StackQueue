@@ -7,7 +7,7 @@ HK
 public class Stack<T> {
 
     // The instance variables to maintain the stack state
-    private int size;
+    protected int size;
     private StackNode top;
 
     // A constructor to initialize an empty stack

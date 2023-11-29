@@ -1,6 +1,7 @@
 public class StackQueue<T> {
 
     Stack s1;
+    Stack s2;
 
     public StackQueue() {
         this.s1 = new Stack<>();
@@ -18,6 +19,22 @@ public class StackQueue<T> {
             }
         }
 
+    }
+    public T dequeue(){
+        T data;
+        if(s1.isEmpty()){
+            throw new IllegalStateException("Queue is empty");
+        }else {
+            data = (T)s2.peek();
+            s2.pop();
+            s2.size--;
+            Stack temp = s2;
+            s1= new Stack();
+            for(int i =0; i< s2.size; i++){
+                s1.push(temp.pop());
+            }
+        }
+        return data;
     }
 
 }
