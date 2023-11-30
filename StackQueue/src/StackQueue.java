@@ -25,4 +25,12 @@ public class StackQueue<T> {
         return s2.pop();
     }
 
+    public boolean isEmpty() {
+        if (s1.isEmpty() && s2.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
