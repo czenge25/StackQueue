@@ -10,6 +10,7 @@ public class StackQueue<T> {
 
     public void enqueue(T data) {
         s1.push(data);
+        s1.size++;
     }
 
     public T dequeue(){
@@ -22,6 +23,7 @@ public class StackQueue<T> {
                 }
             }
         }
+        s1.size--;
         return s2.pop();
     }
 
