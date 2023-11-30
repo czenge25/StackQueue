@@ -24,6 +24,9 @@ public class Stack<T> {
 
     // A method for popping and returning the top element from the stack
     public T pop() {
+        if (top == null) {
+            throw new IllegalStateException("Cannot pop from an empty stack");
+        }
         size--;  // Decreases the size of the stack
         StackNode oldTop = top;  // Gets the current top node
         top = top.getParent();  // Updates the top to the previous node

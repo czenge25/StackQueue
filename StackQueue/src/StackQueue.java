@@ -10,21 +10,20 @@ public class StackQueue<T> {
 
     public void enqueue(T data) {
         s1.push(data);
-        s1.size++;
     }
 
     public T dequeue(){
-        if (s2.isEmpty()) {
-            if (s1.isEmpty()) {
-                throw new IllegalStateException("Queue is empty");
-            } else {
-                while (!s1.isEmpty()) {
-                    s2.push(s1.pop());
-                }
-            }
+        while (!s1.isEmpty()) {
+            s2.push(s1.pop());
         }
-        s1.size--;
-        return s2.pop();
+        if (s2.isEmpty()) {
+            throw new IllegalStateException();
+        }
+        T data = s2.pop();
+        while (!s2.isEmpty()) {
+            s1.push(s2.pop());
+        }
+        return data;
     }
 
     public boolean isEmpty() {
