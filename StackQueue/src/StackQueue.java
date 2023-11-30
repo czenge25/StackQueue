@@ -33,4 +33,8 @@ public class StackQueue<T> {
         }
     }
 
+    public int size() {
+        return s1.size;
+    }
+
 }
