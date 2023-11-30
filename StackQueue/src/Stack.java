@@ -34,7 +34,6 @@ public class Stack<T> {
     public T peek() {
         return (T) top.getData();  // Returns the data of the top element
     }
-
     // A method for checking if the stack is empty
     public boolean isEmpty() {
         if (size == 0) {

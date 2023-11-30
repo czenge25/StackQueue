@@ -1,40 +1,28 @@
 public class StackQueue<T> {
 
-    Stack s1;
-    Stack s2;
+    Stack<T> s1;
+    Stack<T> s2;
 
     public StackQueue() {
         this.s1 = new Stack<>();
+        this.s2 = new Stack<>();
     }
 
     public void enqueue(T data) {
         s1.push(data);
-        s1.size++;
-        if (s1.size() == 1) {
-            s2.push(data);
-        } else {
-            Stack temp = s1;
-            for (int i = 0; i < s1.size() - 1; i++) {
-                s2.push(temp.pop());
-            }
-        }
-
     }
+
     public T dequeue(){
-        T data;
-        if(s1.isEmpty()){
-            throw new IllegalStateException("Queue is empty");
-        }else {
-            data = (T)s2.peek();
-            s2.pop();
-            s2.size--;
-            Stack temp = s2;
-            s1= new Stack();
-            for(int i =0; i< s2.size; i++){
-                s1.push(temp.pop());
+        if (s2.isEmpty()) {
+            if (s1.isEmpty()) {
+                throw new IllegalStateException("Queue is empty");
+            } else {
+                while (!s1.isEmpty()) {
+                    s2.push(s1.pop());
+                }
             }
         }
-        return data;
+        return s2.pop();
     }
 
 }
